@@ -5,6 +5,12 @@ import { IconButton } from "../../components/IconButton/IconButton";
 import { OutlineButton } from "../../components/OutlineButton";
 import { YouTubeLogo } from "../../components/YouTubeLogo";
 
+/* ZONA DOS EXCLUÍDOS
+<IconButton onClick={onClickButton}>
+        <MdMenu />
+      </IconButton>
+*/
+
 function onClickButton() {
   alert("Clicou no botão!");
 }
@@ -12,17 +18,29 @@ function onClickButton() {
 export function AppBar() {
   return (
     <header className={styles["app-bar"]}>
-      <IconButton onClick={onClickButton}>
-        <MdMenu />
-      </IconButton>
+      <LogoDiv />
+      <ActionsDiv />
+    </header>
+  );
+}
+
+function LogoDiv() {
+  return (
+    <div>
       <YouTubeLogo />
-      YouTube
+    </div>
+  );
+}
+
+function ActionsDiv() {
+  return (
+    <div>
       <IconButton onClick={onClickButton}>
         <MdSearch />
       </IconButton>
-      <OutlineButton>
-        <FaCircleUser /> Fazer login
-      </OutlineButton>
-    </header>
+      <IconButton onClick={onClickButton}>
+        <FaCircleUser />
+      </IconButton>
+    </div>
   );
 }

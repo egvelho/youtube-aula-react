@@ -1,4 +1,15 @@
 .app-bar {
-  background-color: black;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: solid var(--text-color-dark-theme) 1px;
+  position: sticky;
+  top: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  .app-bar {
+    border-bottom: solid var(--text-color-light-theme) 1px;
+  }
 }
