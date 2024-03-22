@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import { Avatar } from "@mui/material";
 
 export function VideoThumbnail() {
   return (
-    <div style={{ width: "312px" }}>
+    <ThumbnailContainer>
       <ThumbnailImage src="https://picsum.photos/200/120" />
       <ThumbnailInnerBox>
-        <ThumbnailAvatar src="https://kanto.legiaodosherois.com.br/w250-h250-gnw-cfill-q95-gcc/wp-content/uploads/2021/07/legiao_Ry1hNJoxOzpY.jpg.webp" />
+        <Avatar
+          src="https://kanto.legiaodosherois.com.br/w250-h250-gnw-cfill-q95-gcc/wp-content/uploads/2021/07/legiao_Ry1hNJoxOzpY.jpg.webp"
+          sx={{ width: "32px", height: "32px" }}
+        />
         <TextBox>
           <ThumbnailTitleLink href="https://google.com">
             Como ser igual ao Luccas Neto
@@ -13,21 +17,28 @@ export function VideoThumbnail() {
           <ThumbnailChannelLink href="https://facebook.com">
             Luccas Neto
           </ThumbnailChannelLink>
-          <ThumbnailInfo>37 mi de visualizações há * 6 anos</ThumbnailInfo>
+          <ThumbnailInfo>37 mi de visualizações - há 6 anos</ThumbnailInfo>
         </TextBox>
       </ThumbnailInnerBox>
-    </div>
+    </ThumbnailContainer>
   );
 }
+
+const ThumbnailContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
 
 const ThumbnailInnerBox = styled.div`
   display: flex;
   gap: 8px;
+  padding: 8px;
 `;
 
 const TextBox = styled.div`
   display: flex;
-  gap: 2px;
+  gap: 4px;
   flex-direction: column;
 `;
 
@@ -36,21 +47,21 @@ const ThumbnailImage = styled.img`
   border-radius: 4px;
 `;
 
-const ThumbnailAvatar = styled.img`
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-`;
-
 const ThumbnailTitleLink = styled.a`
-  text-transform: uppercase;
   font-size: 0.9em;
+  line-height: 1;
+  font-weight: bold;
+  margin-bottom: 4px;
 `;
 
 const ThumbnailChannelLink = styled.a`
-  font-size: 0.9em;
+  font-size: 0.8em;
+  opacity: 0.8;
+  line-height: 1;
 `;
 
 const ThumbnailInfo = styled.a`
-  font-size: 0.9em;
+  font-size: 0.8em;
+  opacity: 0.8;
+  line-height: 1;
 `;

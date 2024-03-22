@@ -1,9 +1,19 @@
 import { MdSearch } from "react-icons/md";
+import tw from "tailwind-styled-components";
+
+const SearchBarContainer = tw.div`
+  border
+  border-gray-600
+  rounded-xl
+  focus-within:border-blue-600
+  w-full
+  flex
+`;
 
 export function SearchBar() {
   return (
-    <div className="border border-2 border-gray-400 rounded-xl inline-flex bg-slate-800 focus-within:border-purple-600">
-      <div className="flex gap-1 items-center">
+    <SearchBarContainer>
+      <div className="flex flex-1 gap-1 items-center">
         <span className="p-2">
           <MdSearch />
         </span>
@@ -13,9 +23,9 @@ export function SearchBar() {
           placeholder="Pesquisar"
         />
       </div>
-      <button className="py-2 px-4 bg-slate-900 rounded-r-lg hover:bg-purple-600 cursor-pointer">
+      <button className="py-2 px-4 bg-gray-900 rounded-r-xl hover:bg-gray-800 cursor-pointer">
         <MdSearch />
       </button>
-    </div>
+    </SearchBarContainer>
   );
 }

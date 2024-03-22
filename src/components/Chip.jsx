@@ -5,18 +5,16 @@ export const Chip = styled.button`
   padding: 6px;
   font-size: 0.8rem;
   font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: ${(props) => props.bgColorLight ?? "rgba(0, 0, 0, 0.1)"};
+
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0.75;
   }
 
-  @media (prefers-color-scheme: light) {
-    background-color: rgba(255, 255, 255, 0.25);
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.5);
-    }
+  @media (prefers-color-scheme: dark) {
+    background-color: ${(props) =>
+      props.bgColorDark ?? "rgba(255, 255, 255, 0.1)"};
   }
 `;

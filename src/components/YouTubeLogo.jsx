@@ -11,6 +11,7 @@ export function YouTubeLogo() {
         src="youtube.png"
         style={{
           height: "24px",
+          maxWidth: "initial",
         }}
       />
       <span

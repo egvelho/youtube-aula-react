@@ -1,15 +1,12 @@
-import { MdMenu, MdSearch } from "react-icons/md";
+import { MdSearch } from "react-icons/md";
 import styles from "./AppBar.module.css";
 import { FaCircleUser } from "react-icons/fa6";
 import { IconButton } from "../../components/IconButton/IconButton";
-import { OutlineButton } from "../../components/OutlineButton";
 import { YouTubeLogo } from "../../components/YouTubeLogo";
-
-/* ZONA DOS EXCLUÍDOS
-<IconButton onClick={onClickButton}>
-        <MdMenu />
-      </IconButton>
-*/
+import { SearchBar } from "../../components/SearchBar";
+import { IconButton as MuiIconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useDrawerState } from "../useDrawerState";
 
 function onClickButton() {
   alert("Clicou no botão!");
@@ -25,8 +22,24 @@ export function AppBar() {
 }
 
 function LogoDiv() {
+  const toggleDrawer = useDrawerState((state) => state.toggle);
+
+  function onClickToggleDrawer() {
+    toggleDrawer();
+  }
+
   return (
-    <div>
+    <div className="flex gap-2">
+      <MuiIconButton
+        onClick={onClickToggleDrawer}
+        sx={{
+          "@media (prefers-color-scheme: dark)": {
+            color: "var(--text-color-dark-theme)",
+          },
+        }}
+      >
+        <MenuIcon />
+      </MuiIconButton>
       <YouTubeLogo />
     </div>
   );
@@ -34,10 +47,11 @@ function LogoDiv() {
 
 function ActionsDiv() {
   return (
-    <div>
+    <div className="flex gap-1">
       <IconButton onClick={onClickButton}>
         <MdSearch />
       </IconButton>
+
       <IconButton onClick={onClickButton}>
         <FaCircleUser />
       </IconButton>
